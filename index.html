@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- sectionOne -->
+    <section class="hero-section">
+
+        <img class="backgroundImg"
+            src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Rectangle%2048.png"
+            alt="background" />
+
+        <div class="hero-container">
+
+            <!-- LEFT 50% -->
+            <div class="left-content">
+                <img class="mdLogoImg"
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD_by_Drive_White_Black.png"
+                    alt="logo" />
+
+                <img class="innovationLogoImg"
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/MD_Innovation2.png"
+                    alt="innovation" />
+            </div>
+
+            <!-- RIGHT 50% -->
+            <div class="right-content">
+                <img class="rightSideImg"
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Cane_Handle_Tip_2%203.png"
+                    alt="product" />
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <!-- sectionTwo -->
+
+    <div class="product-page">
+
+        <!-- 🔽 THUMBNAIL SECTION (Reusable Component) -->
+        <div class="thumbnail-section">
+
+            <!-- LEFT ARROW -->
+            <button class="thumb-arrow" id="thumbArrowUp">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 15L12 9L18 15" />
+                </svg>
+            </button>
+
+            <div class="thumb-list-wrapper">
+                <div class="thumb-list" id="thumbList"></div>
+            </div>
+            <!-- MOBILE IMAGE (hidden on desktop) -->
+            <!-- MAIN IMAGE -->
+            <div class="main-image" id="main-image-mobile">
+                <img id="mainProductImageMobile" src="" alt="Product Image">
+            </div>
+            <button class="thumb-arrow" id="thumbArrowDown">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9L12 15L18 9" />
+                </svg>
+            </button>
+
+
+        </div>
+
+        <!-- MAIN IMAGE -->
+        <div class="main-image" id="main-image-desktop">
+            <img id="mainProductImageDesktop" src="" alt="Product Image">
+        </div>
+
+
+
+        <!-- RIGHT — Product Information -->
+        <div class="product-info">
+
+            <h1 class="p-title">M+D Air Cane</h1>
+
+            <div class="p-meta">
+                <div class="p-meta-firstDev">
+                    <p>Item # MD20100BL</p>
+                    <p>UPC # 822383123456</p>
+                </div>
+                <div class="p-meta-firstDev">
+                    <p>HCPCS # E1234</p>
+                    <p><i class="fa-regular fa-heart"></i>Save to Favorites</p>
+                </div>
+            </div>
+
+
+            <!-- <div class="p-price-main">$32.99</div> -->
+
+            <div class="p-color">
+                <label>Color :</label>
+                <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Cane_Colors%203%20(1).svg"
+                    alt="" />
+
+            </div>
+
+            <p class="p-description">
+                Most canes on the market are commodities—
+                the Air-Cane™ breaks the mold with Airgonomic™ technology that directly
+                addresses the most common user complaint: hand and wrist discomfort.
+                Its patented Air-Handle cushions the hand to reduce strain, while the
+                FlexGrip™ Air-Tip enhances stability and confidence with every step.
+            </p>
+
+            <a href="#" class="more-options">See All Product Options</a>
+
+        </div>
+
+        <!-- FAR RIGHT — Add to Cart Panel -->
+        <div class="cart-panel">
+            <div class="cart-panel-DevOne">
+
+                <div class="price">$32.99</div>
+
+                <div class="stock">In Stock</div>
+
+                <div class="delivery">
+                    <p>Deliver to: <span>Chris - Huntington 11743</span></p>
+                    <p>Est Delivery: 11/10/25</p>
+                </div>
+
+                <div class="qty-group">
+                    <label>QTY</label>
+                    <input type="number" value="1">
+                </div>
+
+                <div class="qty-group">
+                    <label>UOM</label>
+                    <select>
+                        <option>1/cs</option>
+                    </select>
+                </div>
+
+                <button class="btn add">Add to Cart</button>
+                <button class="btn buy">Buy Now</button>
+            </div>
+
+            <div class="parts-box">
+                <div class="parts-box-divOne">
+                    <i class="fa-solid fa-gear"></i>
+                    <strong>Looking for <br>Replacement Parts</strong>
+                </div>
+                <p>
+                    To find replacement parts or accessories for this product,
+                    visit the <a href="#">Parts Finder</a> page.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        let currentIndex = 0;
+        let startIndex = 0;
+        let visibleCount = 5;
+
+        const images = [
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&w=800&q=80",
+            "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&w=800&q=80",
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&w=800&q=80",
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&w=800&q=80",
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&w=800&q=80",
+            "https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&w=800&q=80"
+        ];
+
+        const thumbList = document.getElementById("thumbList");
+
+        // ⭐ NEW IMAGE REFERENCES
+        const mainProductImageDesktop = document.getElementById("mainProductImageDesktop");
+        const mainProductImageMobile = document.getElementById("mainProductImageMobile");
+
+        function renderThumbnails() {
+            thumbList.innerHTML = "";
+
+            const visibleImages = images.slice(startIndex, startIndex + visibleCount);
+
+            visibleImages.forEach((src, i) => {
+                const actualIndex = startIndex + i;
+
+                const img = document.createElement("img");
+                img.src = src;
+                img.dataset.index = actualIndex;
+
+                if (actualIndex === currentIndex) {
+                    img.classList.add("active");
+                }
+
+                img.addEventListener("click", () => {
+                    currentIndex = actualIndex;
+                    updateMainImage();
+                });
+
+                thumbList.appendChild(img);
+            });
+        }
+
+        function updateMainImage() {
+            const newSrc = images[currentIndex];
+
+            // ⭐ UPDATE BOTH IMAGES
+            if (mainProductImageDesktop) {
+                mainProductImageDesktop.src = newSrc;
+            }
+            if (mainProductImageMobile) {
+                mainProductImageMobile.src = newSrc;
+            }
+
+            renderThumbnails();
+        }
+
+        document.getElementById("thumbArrowUp").addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                if (currentIndex < startIndex) startIndex--;
+                updateMainImage();
+            }
+        });
+
+        document.getElementById("thumbArrowDown").addEventListener("click", () => {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                if (currentIndex >= startIndex + visibleCount) startIndex++;
+                updateMainImage();
+            }
+        });
+
+        // INIT
+        updateMainImage();
+    </script>
+
+
+
+
+
+
+
+
+    <!-- sectionThreeAboutProductDetails -->
+    <section class="productInfoSec">
+
+        <div class="productInfoTabs">
+            <button class="tabActive">Product Options</button>
+            <button>Features</button>
+            <button>Specifications</button>
+            <button>Resources/Downloads</button>
+        </div>
+
+        <div class="productInfoWrapper">
+
+            <!-- Product Options Table -->
+            <table class="productInfoTable dynamicProductTable"></table>
+
+            <!-- Features -->
+            <div class="productInfoFeatures" style="display:none;">
+                <div class="dynamicFeatures"></div>
+            </div>
+
+            <!-- Specifications -->
+            <div class="productInfoSpecs" style="display:none;">
+                <div class="dynamicSpecs"></div>
+            </div>
+
+            <!-- Downloads -->
+            <div class="productInfoDownloads" style="display:none;">
+                <div class="dynamicDownloads"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const data = {
+
+                tableHeadings: [
+                    "Item #",
+                    "UPC",
+                    "Seat Size",
+                    "Front Rigging",
+                    "HCPCS",
+                    "Price",
+                    "Quantity",
+                    "Unit",
+                    "Select"
+                ],
+
+                products: [
+                    {
+                        item: "PLA416FBUARAD-ELR",
+                        upc: "822383005263",
+                        seatSize: '16"',
+                        frontRigging: "Elevating Leg Rest",
+                        hcpcs: "E123",
+                        price: "$299.99",
+                        quantity: 1,
+                        unit: "1/EACH"
+                    },
+                    {
+                        item: "PLA416FBUARAD-ELR",
+                        upc: "822383005263",
+                        seatSize: '16"',
+                        frontRigging: "Elevating Leg Rest",
+                        hcpcs: "E123",
+                        price: "$299.99",
+                        quantity: 1,
+                        unit: "1/EACH"
+                    }
+                ],
+
+                features: [
+                    [
+                        "Compact and lightweight design",
+                        "LED display with battery indicators",
+                        "Quiet home/clinical operation",
+                        "Medical-grade materials"
+                    ],
+                    [
+                        "Oxygen flow up to 5 L/min",
+                        "Reusable filters",
+                        "Low oxygen alarm",
+                        "Pulse & continuous flow",
+                        "2-year warranty"
+                    ]
+                ],
+
+                specificationsGroups: [
+                    [
+                        { label: "Primary Product Color", value: "Black" },
+                        { label: "Primary Product Material", value: "Steel" },
+                        { label: "Overall Product Height", value: '36"' },
+                        { label: "Overall Product Length", value: '42"' },
+                        { label: "Overall Product Width", value: '26"' },
+                        { label: "Folded Dimensions", value: '42" x 12.5" x 36"' }
+                    ],
+                    [
+                        { label: "Seat Depth", value: '16"' },
+                        { label: "Seat to Floor Height", value: '17.5”–19.5"' },
+                        { label: "Armrest Length", value: '14"' },
+                        { label: "Casters", value: '8"' },
+                        { label: "Warranty", value: "3 Year Limited" }
+                    ]
+                ],
+
+                downloads: [
+                    { icon: "fa-solid fa-book-open", name: "User Manual", link: "#" },
+                    { icon: "fa-solid fa-gear", name: "Parts Diagram", link: "#" },
+                    { icon: "fa-regular fa-file-lines", name: "Catalog Page", link: "#" }
+                ]
+            };
+
+
+            /* BUILD TABLE */
+            const table = document.querySelector(".dynamicProductTable");
+
+            table.innerHTML = `
+  <thead>
+    <tr>
+      ${data.tableHeadings.map(h => `<th>${h}</th>`).join("")}
+    </tr>
+  </thead>
+  <tbody>
+    ${data.products.map(row => `
+        <tr>
+          <td data-label="${data.tableHeadings[0]}">${row.item}</td>
+          <td data-label="${data.tableHeadings[1]}">${row.upc}</td>
+          <td data-label="${data.tableHeadings[2]}">${row.seatSize}</td>
+          <td data-label="${data.tableHeadings[3]}">${row.frontRigging}</td>
+          <td data-label="${data.tableHeadings[4]}">${row.hcpcs}</td>
+          <td data-label="${data.tableHeadings[5]}">${row.price}</td>
+          <td data-label="${data.tableHeadings[6]}"><input type="number" value="${row.quantity}"></td>
+          <td data-label="${data.tableHeadings[7]}"><select><option>${row.unit}</option></select></td>
+          <td data-label="${data.tableHeadings[8]}"><button class="productInfoAddBtn">Add to Cart</button></td>
+        </tr>
+      `).join("")
+                }
+  </tbody>
+`;
+
+
+
+            /* BUILD FEATURES */
+            document.querySelector(".dynamicFeatures").innerHTML =
+                data.features
+                    .map(list => `
+        <ul class="infoFeatureList">
+          ${list.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+      `)
+                    .join("");
+
+
+            /* BUILD SPECS */
+            document.querySelector(".dynamicSpecs").innerHTML =
+                data.specificationsGroups
+                    .map(group => `
+        <table class="specInfoTable">
+          <tbody>
+            ${group.map(s => `<tr><th>${s.label}</th><td>${s.value}</td></tr>`).join("")}
+          </tbody>
+        </table>
+      `)
+                    .join("");
+
+
+            /* BUILD DOWNLOADS */
+            document.querySelector(".dynamicDownloads").innerHTML =
+                data.downloads.map(d => `
+      <div>
+        <i class="${d.icon}"></i>
+        <p>${d.name}</p>
+        <button onclick="window.location='${d.link}'">Download</button>
+      </div>
+    `).join("");
+
+
+            /* TAB SWITCHING */
+            const tabs = document.querySelectorAll(".productInfoTabs button");
+            const sections = [
+                document.querySelector(".productInfoTable"),
+                document.querySelector(".productInfoFeatures"),
+                document.querySelector(".productInfoSpecs"),
+                document.querySelector(".productInfoDownloads")
+            ];
+
+            sections.forEach((sec, i) => sec.style.display = i === 0 ? "table" : "none");
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(btn => btn.classList.remove("tabActive"));
+                    tab.classList.add("tabActive");
+
+                    sections.forEach(sec => sec.style.display = "none");
+
+                    if (index === 0) sections[index].style.display = "table";
+                    else sections[index].style.display = "flex";
+                });
+            });
+
+        });
+    </script>
+
+
+
+
+    <!-- sectionFourAboutCane -->
+    <section class="comfort-section">
+
+        <!-- Desktop video -->
+        <div class="comfort-left desktop-video">
+            <video class="comfort-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Right Content -->
+        <div class="comfort-right">
+
+            <h2>Less Pain, More<br>Comfort</h2>
+
+            <!-- Mobile-only video -->
+            <video class="comfort-video mobile-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+
+            <p>
+                The innovative Air-Handle is designed to ease hand strain and
+                fatigue from the start with the cushioned PU ergonomic grip and
+                a built-in air bladder that adapts to each user's grip.
+            </p>
+
+            <button class="preorder-btn">Pre-Order Now</button>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- sectionFeaturesBanner -->
+    <div class="feature-banner">
+        <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD20100PR_Lifestyle_NZ85750%201.svg"
+            alt="Comfort Support" class="banner-img-desktop">
+        <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Image1_480x500.png"
+            alt="Comfort Support" class="banner-img-mobile">
+
+        <div class="banner-content">
+            <h2>All Day Comfort<br>and Support</h2>
+            <p>Reduced hand strain for<br>all day use</p>
+
+            <button class="cta-btn">Pre-Order Now</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- sectionFiveAboutCane -->
+    <section class="comfort-section">
+
+
+
+        <!-- Right Content -->
+        <div class="comfort-right">
+
+            <h2>Less Pain, More<br>Comfort</h2>
+
+            <!-- Mobile-only video -->
+            <video class="comfort-video mobile-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+
+            <p>
+                The innovative Air-Handle is designed to ease hand strain and
+                fatigue from the start with the cushioned PU ergonomic grip and
+                a built-in air bladder that adapts to each user's grip.
+            </p>
+
+            <button class="preorder-btn">Pre-Order Now</button>
+
+        </div>
+
+        <!-- Desktop video -->
+        <div class="comfort-left desktop-video">
+            <video class="comfort-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+    </section>
+
+
+
+
+
+    <div id="heroBanner">
+
+        <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD20100BK_Lifestyle_NZ85670_Long2%203.png"
+            alt="Comfort Support" class="hero-img-desktop">
+
+        <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Image2_480x500.png"
+            alt="Comfort Support" class="hero-img-mobile">
+
+        <div class="hero-overlay">
+            <h2 class="hero-title">All Day Comfort<br>and Support</h2>
+
+            <p class="hero-text">
+                Reduced hand strain for<br>all day use
+            </p>
+
+            <button class="hero-btn">Pre-Order Now</button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- sectionSixAboutCane -->
+    <section class="comfort-section">
+
+        <!-- Desktop video -->
+        <div class="comfort-left desktop-video">
+            <video class="comfort-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Right Content -->
+        <div class="comfort-right">
+
+            <h2>Less Pain, More<br>Comfort</h2>
+
+            <!-- Mobile-only video -->
+            <video class="comfort-video mobile-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+
+            <p>
+                The innovative Air-Handle is designed to ease hand strain and
+                fatigue from the start with the cushioned PU ergonomic grip and
+                a built-in air bladder that adapts to each user's grip.
+            </p>
+
+            <button class="preorder-btn">Pre-Order Now</button>
+
+        </div>
+
+    </section>
+
+
+
+
+   <div class="promo-feature-container">
+    <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD20100PR_Lifestyle_NZ85450%201.png"
+        alt="Comfort Support" class="promo-img-desktop">
+
+    <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Image3_480x500.png"
+        alt="Comfort Support" class="promo-img-mobile">
+
+    <div class="promo-content-box">
+        <h2>All Day Comfort<br>and Support</h2>
+        <p>Reduced hand strain for<br>all day use</p>
+
+        <button class="promo-cta-btn">Pre-Order Now</button>
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- sectionFiveAboutCane -->
+    <section class="comfort-section">
+
+
+
+        <!-- Right Content -->
+        <div class="comfort-right">
+
+            <h2>Less Pain, More<br>Comfort</h2>
+
+            <!-- Mobile-only video -->
+            <video class="comfort-video mobile-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+
+            <p>
+                The innovative Air-Handle is designed to ease hand strain and
+                fatigue from the start with the cushioned PU ergonomic grip and
+                a built-in air bladder that adapts to each user's grip.
+            </p>
+
+            <button class="preorder-btn">Pre-Order Now</button>
+
+        </div>
+
+        <!-- Desktop video -->
+        <div class="comfort-left desktop-video">
+            <video class="comfort-video" autoplay muted loop playsinline>
+                <source
+                    src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/MD%20category%20landing%20page/Air%20Cane%20-%20Feature%201.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="colors-section">
+
+        <h2>Hardened Anodized Aluminum For<br>Durable, Long Lasting Colors</h2>
+
+        <div class="color-names">
+            <span>Crimson</span>
+            <span>Slate</span>
+            <span>Lavender</span>
+            <span>Forest</span>
+            <span>Onyx</span>
+            <span>Sapphire</span>
+        </div>
+
+        <div class="color-bars">
+            <img src="https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/Cane_Colors%205.svg"
+                alt="Color Bars">
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="slider-container">
+        <h2 class="slider-title">You May Also Like</h2>
+
+        <div class="slider-wrapper">
+
+            <!-- LEFT ARROW (SVG smooth edges) -->
+            <button class="arrow left" onclick="slideLeft()">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="slider" id="slider"></div>
+
+            <!-- RIGHT ARROW (SVG smooth edges) -->
+            <button class="arrow right" onclick="slideRight()">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 6 15 12 9 18"></polyline>
+                </svg>
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+        const imageUrls = [
+            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg"
+        ];
+
+        const slider = document.getElementById("slider");
+
+        // Create cards
+        imageUrls.forEach(url => {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const img = document.createElement("img");
+            img.src = url;
+
+            card.appendChild(img);
+            slider.appendChild(card);
+        });
+
+        // Scroll buttons
+        function slideLeft() { slider.scrollLeft -= 300; }
+        function slideRight() { slider.scrollLeft += 300; }
+
+        // ⭐ Auto-scroll so the first card is slightly hidden ⭐
+        setTimeout(() => {
+            slider.scrollLeft = 400;
+        }, 100);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- testimonialssection -->
+    <section class="t-section">
+        <h2 class="t-title">Testimonials</h2>
+
+        <div class="t-wrapper">
+
+            <!-- LEFT ARROW -->
+            <button class="t-arrow t-left" onclick="tSlideLeft()">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18L9 12L15 6" />
+                </svg>
+            </button>
+
+            <div class="t-slider" id="tSlider"></div>
+
+            <!-- RIGHT ARROW -->
+            <button class="t-arrow t-right" onclick="tSlideRight()">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 6L15 12L9 18" />
+                </svg>
+            </button>
+
+        </div>
+    </section>
+
+    <script>
+        // ⭐ Backend data (replace this with your API response)
+        const testimonialsData = [
+            { stars: 5, title: "Compact & Ready For Travel", text: "The collapsible 3-part design folds in seconds, slipping neatly into your bag or storing compactly when not in use.", author: "Gladys B." },
+            { stars: 5, title: "Strong & Reliable", text: "Great quality and very sturdy. Works perfectly for everyday use.", author: "Marcus T." },
+            { stars: 5, title: "Perfect Gift!", text: "Bought this for my sister and she absolutely loves it!", author: "Elena S." },
+            { stars: 5, title: "Compact & Ready For Travel", text: "The collapsible 3-part design folds in seconds, slipping neatly into your bag or storing compactly when not in use.", author: "Gladys B." },
+            { stars: 5, title: "Strong & Reliable", text: "Great quality and very sturdy. Works perfectly for everyday use.", author: "Marcus T." },
+            { stars: 5, title: "Perfect Gift!", text: "Bought this for my sister and she absolutely loves it!", author: "Elena S." }
+        ];
+
+        const tSlider = document.getElementById("tSlider");
+
+        // Inject cards dynamically
+        testimonialsData.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "t-card";
+
+            card.innerHTML = `
+    <div class="t-stars">${"★".repeat(item.stars)}</div>
+    <h3 class="t-heading">${item.title}</h3>
+    <p class="t-text">${item.text}</p>
+    <p class="t-author">${item.author}</p>
+  `;
+
+            tSlider.appendChild(card);
+        });
+
+        // Slider controls
+        function tSlideLeft() { tSlider.scrollLeft -= 350; }
+        function tSlideRight() { tSlider.scrollLeft += 350; }
+
+        // ⭐ Same effect as You May Also Like slider ⭐
+        setTimeout(() => {
+            tSlider.scrollLeft = 470; // Adjust how much hides
+        }, 100);
+    </script>
+
+</body>
+
+</html>
