@@ -289,92 +289,92 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-            const data = {
+        const data = {
 
-                tableHeadings: [
-                    "Item #",
-                    "UPC",
-                    "Seat Size",
-                    "Front Rigging",
-                    "HCPCS",
-                    "Price",
-                    "Quantity",
-                    "Unit",
-                    "Select"
+            tableHeadings: [
+                "Item #",
+                "UPC",
+                "Seat Size",
+                "Front Rigging",
+                "HCPCS",
+                "Price",
+                "Quantity",
+                "Unit",
+                "Select"
+            ],
+
+            products: [
+                {
+                    item: "PLA416FBUARAD-ELR",
+                    upc: "822383005263",
+                    seatSize: '16"',
+                    frontRigging: "Elevating Leg Rest",
+                    hcpcs: "E123",
+                    price: "$299.99",
+                    quantity: 1,
+                    unit: "1/EACH"
+                },
+                {
+                    item: "PLA416FBUARAD-ELR",
+                    upc: "822383005263",
+                    seatSize: '16"',
+                    frontRigging: "Elevating Leg Rest",
+                    hcpcs: "E123",
+                    price: "$299.99",
+                    quantity: 1,
+                    unit: "1/EACH"
+                }
+            ],
+
+            features: [
+                [
+                    "Compact and lightweight design",
+                    "LED display with battery indicators",
+                    "Quiet home/clinical operation",
+                    "Medical-grade materials"
                 ],
-
-                products: [
-                    {
-                        item: "PLA416FBUARAD-ELR",
-                        upc: "822383005263",
-                        seatSize: '16"',
-                        frontRigging: "Elevating Leg Rest",
-                        hcpcs: "E123",
-                        price: "$299.99",
-                        quantity: 1,
-                        unit: "1/EACH"
-                    },
-                    {
-                        item: "PLA416FBUARAD-ELR",
-                        upc: "822383005263",
-                        seatSize: '16"',
-                        frontRigging: "Elevating Leg Rest",
-                        hcpcs: "E123",
-                        price: "$299.99",
-                        quantity: 1,
-                        unit: "1/EACH"
-                    }
-                ],
-
-                features: [
-                    [
-                        "Compact and lightweight design",
-                        "LED display with battery indicators",
-                        "Quiet home/clinical operation",
-                        "Medical-grade materials"
-                    ],
-                    [
-                        "Oxygen flow up to 5 L/min",
-                        "Reusable filters",
-                        "Low oxygen alarm",
-                        "Pulse & continuous flow",
-                        "2-year warranty"
-                    ]
-                ],
-
-                specificationsGroups: [
-                    [
-                        { label: "Primary Product Color", value: "Black" },
-                        { label: "Primary Product Material", value: "Steel" },
-                        { label: "Overall Product Height", value: '36"' },
-                        { label: "Overall Product Length", value: '42"' },
-                        { label: "Overall Product Width", value: '26"' },
-                        { label: "Folded Dimensions", value: '42" x 12.5" x 36"' }
-                    ],
-                    [
-                        { label: "Seat Depth", value: '16"' },
-                        { label: "Seat to Floor Height", value: '17.5”–19.5"' },
-                        { label: "Armrest Length", value: '14"' },
-                        { label: "Casters", value: '8"' },
-                        { label: "Warranty", value: "3 Year Limited" }
-                    ]
-                ],
-
-                downloads: [
-                    { icon: "fa-solid fa-book-open", name: "User Manual", link: "#" },
-                    { icon: "fa-solid fa-gear", name: "Parts Diagram", link: "#" },
-                    { icon: "fa-regular fa-file-lines", name: "Catalog Page", link: "#" }
+                [
+                    "Oxygen flow up to 5 L/min",
+                    "Reusable filters",
+                    "Low oxygen alarm",
+                    "Pulse & continuous flow",
+                    "2-year warranty"
                 ]
-            };
+            ],
+
+            specificationsGroups: [
+                [
+                    { label: "Primary Product Color", value: "Black" },
+                    { label: "Primary Product Material", value: "Steel" },
+                    { label: "Overall Product Height", value: '36"' },
+                    { label: "Overall Product Length", value: '42"' },
+                    { label: "Overall Product Width", value: '26"' },
+                    { label: "Folded Dimensions", value: '42" x 12.5" x 36"' }
+                ],
+                [
+                    { label: "Seat Depth", value: '16"' },
+                    { label: "Seat to Floor Height", value: '17.5”–19.5"' },
+                    { label: "Armrest Length", value: '14"' },
+                    { label: "Casters", value: '8"' },
+                    { label: "Warranty", value: "3 Year Limited" }
+                ]
+            ],
+
+            downloads: [
+                { icon: "fa-solid fa-book-open", name: "User Manual", link: "#" },
+                { icon: "fa-solid fa-gear", name: "Parts Diagram", link: "#" },
+                { icon: "fa-regular fa-file-lines", name: "Catalog Page", link: "#" }
+            ]
+        };
 
 
-            /* BUILD TABLE */
-            const table = document.querySelector(".dynamicProductTable");
+        /* BUILD TABLE */
+        const table = document.querySelector(".dynamicProductTable");
 
-            table.innerHTML = `
+        table.innerHTML = `
   <thead>
     <tr>
       ${data.tableHeadings.map(h => `<th>${h}</th>`).join("")}
@@ -394,39 +394,38 @@
           <td data-label="${data.tableHeadings[8]}"><button class="productInfoAddBtn">Add to Cart</button></td>
         </tr>
       `).join("")
-                }
+            }
   </tbody>
 `;
 
 
-
-            /* BUILD FEATURES */
-            document.querySelector(".dynamicFeatures").innerHTML =
-                data.features
-                    .map(list => `
+        /* BUILD FEATURES */
+        document.querySelector(".dynamicFeatures").innerHTML =
+            data.features
+                .map(list => `
         <ul class="infoFeatureList">
           ${list.map(item => `<li>${item}</li>`).join("")}
         </ul>
       `)
-                    .join("");
+                .join("");
 
 
-            /* BUILD SPECS */
-            document.querySelector(".dynamicSpecs").innerHTML =
-                data.specificationsGroups
-                    .map(group => `
+        /* BUILD SPECS */
+        document.querySelector(".dynamicSpecs").innerHTML =
+            data.specificationsGroups
+                .map(group => `
         <table class="specInfoTable">
           <tbody>
             ${group.map(s => `<tr><th>${s.label}</th><td>${s.value}</td></tr>`).join("")}
           </tbody>
         </table>
       `)
-                    .join("");
+                .join("");
 
 
-            /* BUILD DOWNLOADS */
-            document.querySelector(".dynamicDownloads").innerHTML =
-                data.downloads.map(d => `
+        /* BUILD DOWNLOADS */
+        document.querySelector(".dynamicDownloads").innerHTML =
+            data.downloads.map(d => `
       <div>
         <i class="${d.icon}"></i>
         <p>${d.name}</p>
@@ -435,31 +434,53 @@
     `).join("");
 
 
-            /* TAB SWITCHING */
-            const tabs = document.querySelectorAll(".productInfoTabs button");
-            const sections = [
-                document.querySelector(".productInfoTable"),
-                document.querySelector(".productInfoFeatures"),
-                document.querySelector(".productInfoSpecs"),
-                document.querySelector(".productInfoDownloads")
-            ];
+        /* ------------------------------------------------------- */
+        /* TAB SWITCHING + TOGGLE BEHAVIOR */
+        /* ------------------------------------------------------- */
 
-            sections.forEach((sec, i) => sec.style.display = i === 0 ? "table" : "none");
+        const tabs = document.querySelectorAll(".productInfoTabs button");
+        const sections = [
+            document.querySelector(".productInfoTable"),
+            document.querySelector(".productInfoFeatures"),
+            document.querySelector(".productInfoSpecs"),
+            document.querySelector(".productInfoDownloads")
+        ];
 
-            tabs.forEach((tab, index) => {
-                tab.addEventListener("click", () => {
-                    tabs.forEach(btn => btn.classList.remove("tabActive"));
-                    tab.classList.add("tabActive");
+        let openTab = 0; // default tab open
 
-                    sections.forEach(sec => sec.style.display = "none");
-
-                    if (index === 0) sections[index].style.display = "table";
-                    else sections[index].style.display = "flex";
-                });
-            });
-
+        sections.forEach((sec, i) => {
+            sec.style.display = i === openTab ? "table" : "none";
         });
-    </script>
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener("click", () => {
+
+                // If clicking on the same open tab → close it
+                if (openTab === index) {
+                    sections[index].style.display = "none";
+                    tab.classList.remove("tabActive");
+                    openTab = null;
+                    return;
+                }
+
+                // Normal behavior: open clicked tab
+                tabs.forEach(btn => btn.classList.remove("tabActive"));
+                tab.classList.add("tabActive");
+
+                sections.forEach(sec => sec.style.display = "none");
+
+                if (index === 0)
+                    sections[index].style.display = "table";
+                else
+                    sections[index].style.display = "flex";
+
+                openTab = index;
+            });
+        });
+
+    });
+</script>
+
 
 
 
