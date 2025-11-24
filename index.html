@@ -137,7 +137,7 @@
 
                 <div class="delivery">
                     <p>Deliver to: <span>Chris - Huntington 11743</span></p>
-                    <p>Est Delivery: 11/10/25</p>
+                    <p>Est Delivery : <span>11/10/25</span> </p>
                 </div>
 
                 <div class="qty-group">
@@ -750,36 +750,44 @@
     </div>
 
     <script>
-        const imageUrls = [
-            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
-            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
-            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
-            "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg"
-        ];
+    const imageUrls = [
+        "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+        "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+        "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg",
+        "https://23487842.fs1.hubspotusercontent-na1.net/hubfs/23487842/md%20group%20landing%20page%20things/MD30100BL_MD30100BK_Lifestyle_NZ85236%201.svg"
+    ];
 
-        const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider");
 
-        // Create cards
-        imageUrls.forEach(url => {
-            const card = document.createElement("div");
-            card.className = "card";
+    // Create cards dynamically
+    imageUrls.forEach(url => {
+        const card = document.createElement("div");
+        card.className = "card";
 
-            const img = document.createElement("img");
-            img.src = url;
+        const img = document.createElement("img");
+        img.src = url;
 
-            card.appendChild(img);
-            slider.appendChild(card);
-        });
+        card.appendChild(img);
+        slider.appendChild(card);
+    });
 
-        // Scroll buttons
-        function slideLeft() { slider.scrollLeft -= 300; }
-        function slideRight() { slider.scrollLeft += 300; }
+    // Wait until cards render, then calculate width
+    function getScrollAmount() {
+        const card = document.querySelector(".card");
+        if (!card) return 300;
+        const style = window.getComputedStyle(slider);
+        const gap = parseInt(style.gap) || 20;
+        return card.offsetWidth + gap;
+    }
 
-        // ⭐ Auto-scroll so the first card is slightly hidden ⭐
-        setTimeout(() => {
-            slider.scrollLeft = 400;
-        }, 100);
-    </script>
+    function slideLeft() {
+        slider.scrollLeft -= getScrollAmount();
+    }
+
+    function slideRight() {
+        slider.scrollLeft += getScrollAmount();
+    }
+</script>
 
 
 
