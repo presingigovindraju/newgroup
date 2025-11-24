@@ -1380,8 +1380,10 @@ html, body {
 }
 
 .preorder-btn {
-  background: #272727;
-  color: #E7CD7E;
+  /* background: #272727;
+  color: #E7CD7E; */
+  background: #F2D66B;
+  color: #000;
   padding: 12px 28px;       
   border-radius: 50px;       
   border: none;
@@ -1447,6 +1449,7 @@ html, body {
     font-size: 20px;
     width: 75%;
     padding: 12px 28px;
+    margin: 0 auto;
   }
 }
 
